@@ -1,29 +1,32 @@
 <template>
   <div>
-    <h1>Hello world</h1>
-    <data-table :rows="rows" :columns="columns" />
+    <!--  <h1>Hello world</h1> -->
+    <data-table :rows="rows" :columns="columns" :onClickRow="onClickRow" />
   </div>
 </template>
 
 <script>
-import DataTable from './components/DataTable.vue'
+import DataTable from "./components/DataTable.vue";
 
 export default {
   components: { DataTable },
-  name: 'App',
+  name: "App",
   data() {
     return {
       rows: [
-        { id: 1, name: 'John Doe', age: 30 },
-        { id: 2, name: 'Jane Doe', age: 25 },
-        { id: 3, name: 'Joe Doe', age: 20 }
+        { Field0: 1, Field1: "John Doe", Field2: 30 },
+        { Field0: 2, Field1: "Jane Doe", Field2: 25 },
+        { Field0: 3, Field1: "Joe Doe", Field2: 20 },
       ],
-      columns: ['id','name', 'age']
-    }
-  }
-}
+      columns: ["Field0", "Field1", "Field2"],
+    };
+  },
+  methods: {
+    onClickRow(row) {
+      console.log("Row clicked", row);
+    },
+  },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
